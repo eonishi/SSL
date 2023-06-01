@@ -1,3 +1,5 @@
+# T1. Fases de Traducción y Errores
+
 ### 1. Preprocesador :
 
 #### a)
@@ -57,7 +59,7 @@ hello3.c:5:1: warning: implicit declaration of function 'prontf'; did you mean '
 hello3.c:5:1: error: expected declaration or statement at end of input
 ```
 
-#### b) 
+#### b)
 ```
 int printf(const char * restrict s, ...);
 
@@ -79,14 +81,14 @@ $ gcc -c hello4.s
 ```
 
 ###  3. Vinculación
-#### a) 
+#### a)
 El enlazador une varios archivos de objetos binarios en un único archivo ejecutable. En el proceso, tiene que completar las referencias externas entre los diversos módulos de su programa sustituyendo las ubicaciones finales de los objetos por las referencias simbólicas. El enlazador hace esto utilizando la misma información que proporciona el ensamblador en la tabla de símbolos.
 
 Además, el enlazador también debe agregar el código para cualquier función de biblioteca estándar de C que haya utilizado en su programa. En el contexto de la vinculación, una biblioteca es simplemente un conjunto de archivos de objetos recopilados en un solo archivo de almacenamiento para un manejo más fácil.
 
 ```
 $ gcc hello4.o
-``` 
+```
 
 ```
 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: hello4.o:hello4.c:(.text+0x1f): undefined reference to `prontf'
@@ -112,11 +114,11 @@ $ gcc -c hello5.c && gcc hello5.o -o hello5 && ./hello5.exe
 ```
 La respuesta es 1095836608
 ```
-	El programa fue compilado y linkeado de tal forma que generó un archivo ejecutable (.exe) pero el resultado no es el esperado. 
+El programa fue compilado y linkeado de tal forma que generó un archivo ejecutable (.exe) pero el resultado no es el esperado.
 
 ### 4. Corrección de Bug
 
-#### a) 
+#### a)
 ```
 int printf(const char * restrict s, ...);
 
@@ -136,7 +138,7 @@ La respuesta es 42
 
 ### 5. Remoción del prototipo
 
-#### a) 
+#### a)
 
 ```
 int main(void){
@@ -204,10 +206,10 @@ Generar un ejecutable basado en más de una unidad de traducción implica enumer
 $ gcc hello8.c studio1.c
 ```
 
-#### c) 
+#### c)
 Aunque la función `prontf` está definida con dos parámetros, en C es posible llamar a una función con menos argumentos de los especificados en su declaración. Esto se debe a que en C, los argumentos adicionales pasados a una función se consideran opcionales y no se realizan comprobaciones estrictas en tiempo de compilación.
 
-En el caso específico de la función `prontf`, si se llama a la función con menos argumentos de los esperados, como en `prontf("La respuesta es %d\n");`, el comportamiento puede ser impredecible ya que se intentará acceder a un argumento que no han sido proporcionado. Esto puede resultar en un comportamiento indefinido o en un error en tiempo de ejecución.
+En el caso específico de la función `prontf`, si se llama a la función con menos argumentos de los esperados, como en `prontf("La respuesta es %d\n");`, el comportamiento puede ser impredecible ya que se intentará acceder a un argumento que no ha sido proporcionado. Esto puede resultar en un comportamiento indefinido o en un error en tiempo de ejecución.
 En este caso, preservando un bug en la salida:
 
 ```
@@ -220,4 +222,38 @@ Por otro lado, si se pasan más argumentos de los esperados, como en `prontf("La
 La respuesta es 42
 ```
 
-#### d) 
+#### d)
+
+studio.h
+```
+#ifndef _STUDIO_H_INCULDED_
+#define _STUDIO_H_INCULDED_
+
+void prontf(const char*, int);
+#endif
+```
+
+hello9.c
+```
+#include "studio.h" // Interfaz que importa
+int main(void){
+int i=42;
+prontf("La respuesta es %d\n", i);
+}
+```
+
+studio.c
+```
+#include "studio.h" // Interfaz que exporta
+#include <stdio.h> // Interfaz que importa
+void prontf(const char* s, int i){
+  printf("La respuesta es %d\n", i);
+}
+```
+
+La ventaja de incluir el contrato es que permite tener la declaracion de la funcion de forma explicita. Esto evita posibles errores. Al querer compilar el archivo sin el #include en el `hello9.c` es compilador nos retorna el siguiente warning:
+```
+implicit declaration of function ‘prontf’
+```
+
+Mientras que no es necesario agregar la interfaz que exporta en el `studio.c`, hacerlo ayuda a mantener consistencias entre las funciones declaradas en el contrato y las definidas en dicho archivo.
