@@ -37,3 +37,4 @@
 # VSCode files
 *.code-workspace
 *.vscode
+*.template
