@@ -3,8 +3,8 @@ CFLAGS = -Wall -Wextra -std=c2x -I ./include
 
 TARGET = main
 TEST = test/test.txt
-SRCS = main.c state_machine.c
-OBJS = $(SRCS:.c=.o)
+SRCS := main.c src/*.c
+OBJS :=$(patsubst %.c, %.o, $(wildcard src/*.c)) main.o
 
 all: $(TARGET)
 
