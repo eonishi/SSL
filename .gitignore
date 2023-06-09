@@ -37,4 +37,6 @@
 # VSCode files
 *.code-workspace
 *.vscode
-*.template
+
+# Bashscripts
+*.sh
