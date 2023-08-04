@@ -1,0 +1,9 @@
+digraph histograma {
+    IN -> OUT
+    IN -> IN
+    OUT -> IN
+    OUT -> OUT
+
+    IN [label="IN", shape=circle]
+    OUT [label="OUT", shape=circle]
+}

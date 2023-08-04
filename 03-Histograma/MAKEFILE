@@ -1,0 +1,32 @@
+# MAKEFILE TEMPLATE FOR C PROJECTS 
+CC = clang 
+CFLAGS = -std=c2x -I ./include 
+ 
+TARGET = main 
+ 
+SRCS := main.c src/Histograma.c 
+OBJS :=$(patsubst %.c, %.o, $(wildcard src/*.c)) main.o 
+ 
+all: $(TARGET) 
+ 
+$(TARGET): $(OBJS) 
+	$(CC) $(CFLAGS) $^ -o $@ 
+ 
+%.o: %.c 
+	$(CC) $(CFLAGS) -c $< -o $@ 
+
+test1: 
+	./$(TARGET) < test/ipsum.txt
+
+test2: 
+	./$(TARGET) < test/test.txt
+ 
+.PHONY: clean cleanall exec 
+exec: 
+	./$(TARGET) 
+ 
+clean: 
+	rm -f $(OBJS) $(TARGET) 
+ 
+cleanall: 
+	rm -f $(OBJS) $(TARGET) *.o *.out *.exe

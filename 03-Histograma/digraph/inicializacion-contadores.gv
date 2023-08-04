@@ -1,0 +1,3 @@
+digraph contadores {
+   n1 -> nw -> nc -> 0;
+}

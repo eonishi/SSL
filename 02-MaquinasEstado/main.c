@@ -4,6 +4,5 @@
 
 int main (void) {
     printf ("%d\n", ContarPalabras(stdin));
-    printf ("Hola Mundo\n");
     return 0;
 }

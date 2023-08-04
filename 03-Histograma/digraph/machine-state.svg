@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="303pt" height="120pt" viewBox="0.00 0.00 303 119.6">
+<g id="graph0" class="graph" transform="translate(4,115.5999984741211) scale(1)" data-name="MaquinaDeEstados">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-115.6 299,-115.6 299,4 -4,4"/>
+<!-- OUT -->
+<g id="node1" class="node" pointer-events="visible" data-name="OUT">
+
+<ellipse fill="rgb(196, 192, 191)" stroke="black" cx="36" cy="-36" rx="36" ry="36"/>
+<text text-anchor="middle" x="36" y="-31.8" font-family="Helvetica,sans-Serif" font-size="14.00">OUT ±</text>
+</g>
+<!-- OUT&#45;&gt;OUT -->
+<g id="edge3" class="edge" data-name="OUT-&gt;OUT">
+
+<path fill="none" stroke="black" d="M25.79,-70.8C26,-81.55 29.4,-90 36,-90 40.02,-90 42.86,-86.86 44.5,-81.98"/>
+<polygon fill="black" stroke="black" points="47.93,-82.71 45.98,-72.29 41.01,-81.65 47.93,-82.71"/>
+<text text-anchor="middle" x="36" y="-103.5" font-family="Helvetica,sans-Serif" font-size="9">Reseteo </text>
+<text text-anchor="middle" x="36" y="-92.7" font-family="Helvetica,sans-Serif" font-size="9">contador longitud</text>
+</g>
+<!-- IN -->
+<g id="node2" class="node" pointer-events="visible" data-name="IN">
+
+<ellipse fill="rgb(186, 238, 186)" stroke="black" cx="259" cy="-36" rx="36" ry="36"/>
+<text text-anchor="middle" x="259" y="-31.8" font-family="Helvetica,sans-Serif" font-size="14.00">IN</text>
+</g>
+<!-- OUT&#45;&gt;IN -->
+<g id="edge1" class="edge" data-name="OUT-&gt;IN">
+
+<path fill="none" stroke="black" d="M70.22,-48.57C82.26,-52.1 96.07,-55 109,-55 109,-55 109,-55 186,-55 195.09,-55 204.62,-53.57 213.66,-51.49"/>
+<polygon fill="black" stroke="black" points="214.53,-54.88 223.31,-48.95 212.75,-48.11 214.53,-54.88"/>
+<text text-anchor="middle" x="147.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="9">Reseteo </text>
+<text text-anchor="middle" x="147.5" y="-57.7" font-family="Helvetica,sans-Serif" font-size="9">contador longitud</text>
+</g>
+<!-- IN&#45;&gt;OUT -->
+<g id="edge2" class="edge" data-name="IN-&gt;OUT">
+
+<path fill="none" stroke="black" d="M224.78,-23.43C212.74,-19.9 198.93,-17 186,-17 109,-17 109,-17 109,-17 99.91,-17 90.38,-18.43 81.34,-20.51"/>
+<polygon fill="black" stroke="black" points="80.47,-17.12 71.69,-23.05 82.25,-23.89 80.47,-17.12"/>
+<text text-anchor="middle" x="147.5" y="-30.5" font-family="Helvetica,sans-Serif" font-size="9">Contar </text>
+<text text-anchor="middle" x="147.5" y="-19.7" font-family="Helvetica,sans-Serif" font-size="9">palabra de longitud n</text>
+</g>
+<!-- IN&#45;&gt;IN -->
+<g id="edge4" class="edge" data-name="IN-&gt;IN">
+
+<path fill="none" stroke="black" d="M248.79,-70.8C249,-81.55 252.4,-90 259,-90 263.02,-90 265.86,-86.86 267.5,-81.98"/>
+<polygon fill="black" stroke="black" points="270.93,-82.71 268.98,-72.29 264.01,-81.65 270.93,-82.71"/>
+<text text-anchor="middle" x="259" y="-103.5" font-family="Helvetica,sans-Serif" font-size="9">Contar </text>
+<text text-anchor="middle" x="259" y="-92.7" font-family="Helvetica,sans-Serif" font-size="9">Caracteres</text>
+</g>
+</g>
+</svg>

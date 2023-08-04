@@ -1,0 +1,8 @@
+digraph control {
+    "c" -> "==";
+    "==" -> "'   '" -> "state = OUT";
+    "==" -> "\\n"-> "state = OUT";
+    "==" -> "\\t"-> "state = OUT";
+
+}
+
