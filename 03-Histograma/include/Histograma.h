@@ -5,7 +5,8 @@
     #include <assert.h>
     
     // Histograma de la longitud de palabras
+    //int* GenerarHistograma(FILE *, int *);
     int* GenerarHistograma(FILE *, int *);
-    void PrintHistograma(int *);
+    void PrintHistograma(int *, char);
 
 #endif

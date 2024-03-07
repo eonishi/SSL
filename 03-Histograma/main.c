@@ -2,11 +2,11 @@
  
 int main (void){
 	
-	int histograma[100] = {0};
+	int histograma[50] = {0};
     GenerarHistograma(stdin, histograma);
-    //int posicion = histograma[4];
-    //printf("%d",posicion);
-    PrintHistograma(histograma);
+    int posicion = histograma[5];
+    printf("%d",posicion);
+    //PrintHistograma(histograma, '-');
 
     return 0;
 }
